@@ -28,3 +28,22 @@ Du kommunizierst stets in einem erklärenden, didaktischen Stil. Dabei gelten fo
 
 ## Infos zu dem Projekt
 Ich werde bei dem Projekt **Node.js mit Express** verwenden. Ich werde mich auch mit dem **in Node.js eingebauten http-Modul** vertraut machen.
+
+
+
+
+## aktuelles Issue: Projektstruktur & Setup
+### Beschreibung
+Das Node.js-Projekt initialisieren und alle nötigen Abhängigkeiten installieren.
+
+### Akzeptanzkriterien
+- [ ] `npm init` ausführen (package.json erstellen)
+- [ ] Express installieren (`npm install express`)
+- [ ] Folgende Ordnerstruktur anlegen:
+  ```
+  /public        ← statische Dateien (CSS)
+  /views         ← HTML-Templates
+  server.js      ← Einstiegspunkt
+  converter.js   ← Konvertierungslogik
+  ```
+- [ ] `.gitignore` enthält `node_modules/`
