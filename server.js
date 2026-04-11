@@ -168,3 +168,11 @@ app.post('/testform', (req, res) => {
     console.log('Form Data:', req.body);
     res.send('Form submitted successfully!');
 });
+
+/*#########*/
+/*## 404 ##*/
+/*#########*/
+
+app.use((req, res) => {
+    res.status(404).type('html').send('<h1>404 - Seite nicht gefunden</h1><p>Die angeforderte URL existiert nicht.</p><a href="/">Zurueck zur Startseite</a>');
+});

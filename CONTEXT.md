@@ -32,12 +32,18 @@ Ich werde bei dem Projekt **Node.js mit Express** verwenden. Ich werde mich auch
 
 
 
-## aktuelles Issue: Route & Seite: Temperaturkonverter
+## aktuelles Issue: Fehlerbehandlung: 404-Seite
 ### Beschreibung
-Die Route `/temperature` implementieren: Formular anzeigen (GET) und Ergebnis berechnen (POST).
+Eine benutzerfreundliche 404-Seite für unbekannte Routen einrichten.
 
 ### Akzeptanzkriterien
-- [ ] `GET /temperature` → gibt HTML-Formular zurück
-- [ ] Formular hat Eingabefeld für den Wert (`name="value"`)
-- [ ] Dropdowns für Ausgangs- und Zieleinheit (`name="from"`, `name="to"`)
-- [ ] Bei fehlendem oder ungültigem Wert wird eine verständliche Fehlermeldung angezeigt
+- [x] Unbekannte URLs (z. B. `/abc`) liefern HTTP-Status 404
+- [x] Seite zeigt eine verständliche Meldung und einen Link zur Startseite
+
+### Technische Hinweise
+```js
+// Muss als LETZTES in server.js stehen
+app.use((req, res) => {
+  res.status(404).send('<h1>404 – Seite nicht gefunden</h1><a href="/">Zurück zur Startseite</a>');
+});
+```
