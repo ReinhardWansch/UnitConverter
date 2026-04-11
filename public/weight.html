@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Unit Converter</title>
+	<title>Unit Converter - Weight</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
@@ -153,30 +153,27 @@
 
 			<nav aria-label="Converter categories">
 				<ul class="tabs">
-					<li><a href="/index.html" aria-current="page">Length</a></li>
-					<li><a href="/weight.html">Weight</a></li>
+					<li><a href="/index.html">Length</a></li>
+					<li><a href="/weight.html" aria-current="page">Weight</a></li>
 					<li><a href="/temperature.html">Temperature</a></li>
 				</ul>
 			</nav>
 
 			<form class="converter-form">
 				<div>
-					<label for="length-value">Enter the length to convert</label>
-					<input id="length-value" name="length-value" type="text" autocomplete="off">
+					<label for="weight-value">Enter the weight to convert</label>
+					<input id="weight-value" name="weight-value" type="text" autocomplete="off">
 				</div>
 
 				<div>
 					<label for="from-unit">Unit to Convert from</label>
 					<select id="from-unit" name="from-unit">
 						<option value=""></option>
-						<option value="mm">Millimeter</option>
-						<option value="cm">Centimeter</option>
-						<option value="m">Meter</option>
-						<option value="km">Kilometer</option>
-						<option value="in">Inch</option>
-						<option value="ft">Foot</option>
-						<option value="yd">Yard</option>
-						<option value="mi">Mile</option>
+						<option value="mg">Milligram</option>
+						<option value="g">Gram</option>
+						<option value="kg">Kilogram</option>
+						<option value="oz">Ounce</option>
+						<option value="lb">Pound</option>
 					</select>
 				</div>
 
@@ -184,14 +181,11 @@
 					<label for="to-unit">Unit to Convert to</label>
 					<select id="to-unit" name="to-unit">
 						<option value=""></option>
-						<option value="mm">Millimeter</option>
-						<option value="cm">Centimeter</option>
-						<option value="m">Meter</option>
-						<option value="km">Kilometer</option>
-						<option value="in">Inch</option>
-						<option value="ft">Foot</option>
-						<option value="yd">Yard</option>
-						<option value="mi">Mile</option>
+						<option value="mg">Milligram</option>
+						<option value="g">Gram</option>
+						<option value="kg">Kilogram</option>
+						<option value="oz">Ounce</option>
+						<option value="lb">Pound</option>
 					</select>
 				</div>
 

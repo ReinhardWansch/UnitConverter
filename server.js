@@ -4,12 +4,13 @@ import fs from 'fs';
 
 const app = express();
 
-app.use(express.urlencoded());
-app.use(express.static('public'));
 app.use((req, res, next) => {
-        console.log(`${req.method}: ${req.url}`);    
+        const timestamp = new Date().toLocaleString('de-DE');
+        console.log(`[${timestamp}] ${req.method}: ${req.url}`);
         next();
 });
+app.use(express.urlencoded());
+app.use(express.static('public'));
 
 app.listen(3000, () => {
     console.log();    

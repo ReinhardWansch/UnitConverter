@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Unit Converter</title>
+	<title>Unit Converter - Temperature</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
@@ -153,30 +153,25 @@
 
 			<nav aria-label="Converter categories">
 				<ul class="tabs">
-					<li><a href="/index.html" aria-current="page">Length</a></li>
+					<li><a href="/index.html">Length</a></li>
 					<li><a href="/weight.html">Weight</a></li>
-					<li><a href="/temperature.html">Temperature</a></li>
+					<li><a href="/temperature.html" aria-current="page">Temperature</a></li>
 				</ul>
 			</nav>
 
 			<form class="converter-form">
 				<div>
-					<label for="length-value">Enter the length to convert</label>
-					<input id="length-value" name="length-value" type="text" autocomplete="off">
+					<label for="temperature-value">Enter the temperature to convert</label>
+					<input id="temperature-value" name="temperature-value" type="text" autocomplete="off">
 				</div>
 
 				<div>
 					<label for="from-unit">Unit to Convert from</label>
 					<select id="from-unit" name="from-unit">
 						<option value=""></option>
-						<option value="mm">Millimeter</option>
-						<option value="cm">Centimeter</option>
-						<option value="m">Meter</option>
-						<option value="km">Kilometer</option>
-						<option value="in">Inch</option>
-						<option value="ft">Foot</option>
-						<option value="yd">Yard</option>
-						<option value="mi">Mile</option>
+						<option value="c">Celsius</option>
+						<option value="f">Fahrenheit</option>
+						<option value="k">Kelvin</option>
 					</select>
 				</div>
 
@@ -184,14 +179,9 @@
 					<label for="to-unit">Unit to Convert to</label>
 					<select id="to-unit" name="to-unit">
 						<option value=""></option>
-						<option value="mm">Millimeter</option>
-						<option value="cm">Centimeter</option>
-						<option value="m">Meter</option>
-						<option value="km">Kilometer</option>
-						<option value="in">Inch</option>
-						<option value="ft">Foot</option>
-						<option value="yd">Yard</option>
-						<option value="mi">Mile</option>
+						<option value="c">Celsius</option>
+						<option value="f">Fahrenheit</option>
+						<option value="k">Kelvin</option>
 					</select>
 				</div>
 

@@ -32,23 +32,15 @@ Ich werde bei dem Projekt **Node.js mit Express** verwenden. Ich werde mich auch
 
 
 
-## aktuelles Issue: Server Grundstruktur
+## aktuelles Issue: Startseite mit Navigation
 ### Beschreibung
-Einen lauffähigen Express-Server erstellen, der auf Port 3000 lauscht und statische Dateien ausliefert.
+Eine einfache Startseite (`/`) erstellen, die zu den drei Konverter-Seiten navigiert.
 
 ### Akzeptanzkriterien
-- [x] `server.js` erstellt
-- [x] Server startet mit `node server.js`
-- [x] `express.urlencoded()` Middleware eingebunden (zum Lesen von Formulardaten)
-- [x] Statische Dateien aus `/public` werden ausgeliefert
-- [x] Startmeldung im Terminal: `Server läuft auf http://localhost:3000`
+- [x] `GET /` liefert eine HTML-Seite zurück
+- [x] Seite enthält Links zu `/length`, `/weight` und `/temperature`
+- [x] Grundlegendes HTML-Layout ist vorhanden (DOCTYPE, head, body)
 
-### Technische Hinweise
-```js
-const express = require('express');
-const app = express();
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
-app.listen(3000);
-```
+### Hinweis
+Die Seite muss nicht schön sein – Funktionalität hat Vorrang.
 
