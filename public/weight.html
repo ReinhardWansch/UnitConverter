@@ -159,19 +159,18 @@
 				</ul>
 			</nav>
 
-			<form class="converter-form">
+			<form class="converter-form" method="GET" action="/convert/weight">
 				<div>
 					<label for="weight-value">Enter the weight to convert</label>
-					<input id="weight-value" name="weight-value" type="text" autocomplete="off">
+					<input id="weight-value" name="weight-value" type="text" autocomplete="off" required>
 				</div>
 
 				<div>
 					<label for="from-unit">Unit to Convert from</label>
 					<select id="from-unit" name="from-unit">
-						<option value=""></option>
 						<option value="mg">Milligram</option>
 						<option value="g">Gram</option>
-						<option value="kg">Kilogram</option>
+						<option value="kg" selected>Kilogram</option>
 						<option value="oz">Ounce</option>
 						<option value="lb">Pound</option>
 					</select>
@@ -180,12 +179,11 @@
 				<div>
 					<label for="to-unit">Unit to Convert to</label>
 					<select id="to-unit" name="to-unit">
-						<option value=""></option>
 						<option value="mg">Milligram</option>
 						<option value="g">Gram</option>
 						<option value="kg">Kilogram</option>
 						<option value="oz">Ounce</option>
-						<option value="lb">Pound</option>
+						<option value="lb" selected>Pound</option>
 					</select>
 				</div>
 
@@ -193,5 +191,17 @@
 			</form>
 		</section>
 	</main>
+
+
+	<script>
+		const submitButton = document.querySelector('button[type="submit"]');
+		const weightValueInput = document.querySelector('input[name="weight-value"]');
+		function updateSubmitState() {
+			submitButton.disabled = weightValueInput.value.trim() === '';
+		}
+		weightValueInput.addEventListener('input', updateSubmitState);
+		weightValueInput.addEventListener('change', updateSubmitState);
+		updateSubmitState();
+	</script>
 </body>
 </html>

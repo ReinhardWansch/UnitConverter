@@ -32,12 +32,12 @@ Ich werde bei dem Projekt **Node.js mit Express** verwenden. Ich werde mich auch
 
 
 
-## aktuelles Issue: Route & Seite: Längenkonverter
+## aktuelles Issue: Route & Seite: Gewichtskonverter
 ### Beschreibung
-Die Route `/length` implementieren: Formular anzeigen (GET) und Ergebnis berechnen (POST).
+Die Route `/weight` implementieren: Formular anzeigen (GET) und Ergebnis berechnen (POST).
 
 ### Akzeptanzkriterien
-- [x] `GET /length` → gibt HTML-Formular zurück
-- [x] Formular hat Eingabefeld für den Wert (`name="value"`)
-- [x] Dropdowns für Ausgangs- und Zieleinheit (`name="from"`, `name="to"`)
-- [x] Bei fehlendem oder ungültigem Wert wird eine verständliche Fehlermeldung angezeigt
+- [ ] `GET /weight` → gibt HTML-Formular zurück
+- [ ] Formular hat Eingabefeld für den Wert (`name="value"`)
+- [ ] Dropdowns für Ausgangs- und Zieleinheit (`name="from"`, `name="to"`)
+- [ ] Bei fehlendem oder ungültigem Wert wird eine verständliche Fehlermeldung angezeigt

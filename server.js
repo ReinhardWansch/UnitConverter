@@ -38,6 +38,26 @@ app.get('/convert/length', (req, res) => {
     }
 });
 
+//Results Weight Conversion
+app.get('/convert/weight', (req, res) => {
+    console.log(`Received weight value: ${req.query['weight-value']}`);
+
+    const weightValue = Number(req.query['weight-value']);
+    const fromUnit = req.query['from-unit'];
+    const toUnit = req.query['to-unit'];
+
+    if (!Number.isFinite(weightValue) || !fromUnit || !toUnit) {
+        return res.status(400).send('Missing or invalid weight conversion parameters.');
+    }
+
+    try {
+        const resultPageContent = getWeightResultPage(weightValue, fromUnit, toUnit);
+        res.type('html').send(resultPageContent);
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+});
+
 // Graceful Shutdown
 process.on('SIGINT', () => {
     console.log();
@@ -63,6 +83,11 @@ function formatNumber(value) {
     return Number.parseFloat(value.toFixed(4)).toString();
 }
 
+
+/*###############*/
+/*## TEMPLATES ##*/
+/*###############*/
+
 function renderTemplate(templatePath, replacements) {
     let templateContent = fs.readFileSync(templatePath, 'utf-8');
     for (const [placeholder, replacement] of Object.entries(replacements)) {
@@ -70,10 +95,6 @@ function renderTemplate(templatePath, replacements) {
     }
     return templateContent;
 }
-
-/*###############*/
-/*## TEMPLATES ##*/
-/*###############*/
 
 function getLengthResultPage(lengthValue, fromUnit, toUnit) {
     try {
@@ -84,6 +105,18 @@ function getLengthResultPage(lengthValue, fromUnit, toUnit) {
         });
     } catch (error) {
         throw new Error('Error converting length: ' + error.message);
+    }
+}
+
+function getWeightResultPage(weightValue, fromUnit, toUnit) {
+    try {
+        const convertedValue = convert(weightValue, fromUnit, toUnit);
+        return renderTemplate('./public/convertionResult.html', {
+            '{{RESULT_LABEL}}': escapeHtml('Result of your weight conversion'),
+            '{{RESULT_VALUE}}': escapeHtml(`${formatNumber(weightValue)} ${fromUnit} = ${formatNumber(convertedValue)} ${toUnit}`)
+        });
+    } catch (error) {
+        throw new Error('Error converting weight: ' + error.message);
     }
 }
 
