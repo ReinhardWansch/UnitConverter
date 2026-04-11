@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+        }
+        #message {
+            margin-top: 12px;
+            min-height: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>testform</h1>
+    <form id="test-form" method="POST" target="_self">
+        <input type="text" name="name" placeholder="Enter name" required>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="message" aria-live="polite"></p>
+
+    <script>
+        const form = document.getElementById('test-form');
+        const message = document.getElementById('message');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const body = new URLSearchParams(formData);
+
+            try {
+                const response = await fetch('/testform', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body,
+                });
+
+                const responseText = await response.text();
+
+                if (!response.ok) {
+                    throw new Error(responseText || 'Request failed');
+                }
+
+                form.reset();
+                message.textContent = responseText;
+            } catch (error) {
+                message.textContent = 'Submit failed.';
+            }
+        });
+    </script>
+</body>
+</html>

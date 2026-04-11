@@ -38,10 +38,10 @@ Einen lauffähigen Express-Server erstellen, der auf Port 3000 lauscht und stati
 
 ### Akzeptanzkriterien
 - [x] `server.js` erstellt
-- [ ] Server startet mit `node server.js`
-- [ ] `express.urlencoded()` Middleware eingebunden (zum Lesen von Formulardaten)
-- [ ] Statische Dateien aus `/public` werden ausgeliefert
-- [ ] Startmeldung im Terminal: `Server läuft auf http://localhost:3000`
+- [x] Server startet mit `node server.js`
+- [x] `express.urlencoded()` Middleware eingebunden (zum Lesen von Formulardaten)
+- [x] Statische Dateien aus `/public` werden ausgeliefert
+- [x] Startmeldung im Terminal: `Server läuft auf http://localhost:3000`
 
 ### Technische Hinweise
 ```js
