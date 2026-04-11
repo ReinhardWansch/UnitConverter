@@ -120,8 +120,17 @@
 			box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
 		}
 
+		button:disabled {
+			cursor: not-allowed;
+			opacity: 0.55;
+		}
+
 		button:hover {
 			background: #f5f5f5;
+		}
+
+		button:disabled:hover {
+			background: #fff;
 		}
 
 		@media (max-width: 640px) {
@@ -159,19 +168,18 @@
 				</ul>
 			</nav>
 
-			<form class="converter-form">
+			<form class="converter-form" action="/convert/length" method="GET" data-converter-form>
 				<div>
 					<label for="length-value">Enter the length to convert</label>
-					<input id="length-value" name="length-value" type="text" autocomplete="off">
+					<input id="length-value" name="length-value" type="number" autocomplete="off" required>
 				</div>
 
 				<div>
 					<label for="from-unit">Unit to Convert from</label>
-					<select id="from-unit" name="from-unit">
-						<option value=""></option>
+					<select id="from-unit" name="from-unit" required>
 						<option value="mm">Millimeter</option>
 						<option value="cm">Centimeter</option>
-						<option value="m">Meter</option>
+						<option value="m" selected>Meter</option>
 						<option value="km">Kilometer</option>
 						<option value="in">Inch</option>
 						<option value="ft">Foot</option>
@@ -182,8 +190,7 @@
 
 				<div>
 					<label for="to-unit">Unit to Convert to</label>
-					<select id="to-unit" name="to-unit">
-						<option value=""></option>
+					<select id="to-unit" name="to-unit" required>
 						<option value="mm">Millimeter</option>
 						<option value="cm">Centimeter</option>
 						<option value="m">Meter</option>
@@ -191,13 +198,23 @@
 						<option value="in">Inch</option>
 						<option value="ft">Foot</option>
 						<option value="yd">Yard</option>
-						<option value="mi">Mile</option>
+						<option value="mi" selected>Mile</option>
 					</select>
 				</div>
 
-				<button type="submit">Convert</button>
+				<button type="submit" disabled>Convert</button>
 			</form>
 		</section>
 	</main>
+	<script>
+		const submitButton = document.querySelector('button[type="submit"]');
+		const lengthValueInput = document.querySelector('input[name="length-value"]');
+		function updateSubmitState() {
+			submitButton.disabled = lengthValueInput.value.trim() === '';
+		}
+		lengthValueInput.addEventListener('input', updateSubmitState);
+		lengthValueInput.addEventListener('change', updateSubmitState);
+		updateSubmitState();
+	</script>
 </body>
 </html>

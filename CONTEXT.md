@@ -32,21 +32,12 @@ Ich werde bei dem Projekt **Node.js mit Express** verwenden. Ich werde mich auch
 
 
 
-## aktuelles Issue: Konvertierungslogik: Länge
+## aktuelles Issue: Route & Seite: Längenkonverter
 ### Beschreibung
-Die mathematische Umrechnungslogik für Längeneinheiten in `converter.js` implementieren.
-
-### Einheiten
-`millimeter`, `centimeter`, `meter`, `kilometer`, `inch`, `foot`, `yard`, `mile`
+Die Route `/length` implementieren: Formular anzeigen (GET) und Ergebnis berechnen (POST).
 
 ### Akzeptanzkriterien
-- [x] Funktion `convertLength(value, from, to)` exportiert
-- [x] Alle Einheitenkombinationen korrekt berechnet
-- [x] Strategie: alles zuerst in Meter umrechnen, dann in Zieleinheit
-
-### Beispiel
-```js
-convertLength(100, 'centimeter', 'meter'); // → 1
-convertLength(1, 'mile', 'kilometer');     // → 1.60934
-```
-
+- [x] `GET /length` → gibt HTML-Formular zurück
+- [x] Formular hat Eingabefeld für den Wert (`name="value"`)
+- [x] Dropdowns für Ausgangs- und Zieleinheit (`name="from"`, `name="to"`)
+- [x] Bei fehlendem oder ungültigem Wert wird eine verständliche Fehlermeldung angezeigt
