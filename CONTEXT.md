@@ -32,18 +32,15 @@ Ich werde bei dem Projekt **Node.js mit Express** verwenden. Ich werde mich auch
 
 
 
-## aktuelles Issue: Fehlerbehandlung: 404-Seite
+## aktuelles Issue: Grundlegendes CSS-Styling
 ### Beschreibung
-Eine benutzerfreundliche 404-Seite für unbekannte Routen einrichten.
+Ein einfaches, einheitliches CSS für alle Seiten erstellen.
 
 ### Akzeptanzkriterien
-- [x] Unbekannte URLs (z. B. `/abc`) liefern HTTP-Status 404
-- [x] Seite zeigt eine verständliche Meldung und einen Link zur Startseite
+- [ ] `public/style.css` erstellt
+- [ ] Alle HTML-Seiten binden die CSS-Datei ein
+- [ ] Formular und Ergebnis sind gut lesbar
+- [ ] Seite ist auf mobilen Geräten nutzbar (kein Overflow)
 
-### Technische Hinweise
-```js
-// Muss als LETZTES in server.js stehen
-app.use((req, res) => {
-  res.status(404).send('<h1>404 – Seite nicht gefunden</h1><a href="/">Zurück zur Startseite</a>');
-});
-```
+### Hinweis
+Kein aufwändiges Design nötig – sauber und lesbar ist ausreichend.

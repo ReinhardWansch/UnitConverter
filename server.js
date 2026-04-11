@@ -7,7 +7,8 @@ const app = express();
 
 app.use((req, res, next) => {
         const timestamp = new Date().toLocaleString('de-DE');
-        console.log(`[${timestamp}] ${req.method}: ${req.url}`);
+        const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+        console.log(`[${timestamp}] [${clientIp}] ${req.method}: ${req.url}`);
         next();
 });
 // app.use(express.urlencoded());
