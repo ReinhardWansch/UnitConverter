@@ -32,18 +32,23 @@ Ich werde bei dem Projekt **Node.js mit Express** verwenden. Ich werde mich auch
 
 
 
-## aktuelles Issue: Projektstruktur & Setup
+## aktuelles Issue: Server Grundstruktur
 ### Beschreibung
-Das Node.js-Projekt initialisieren und alle nötigen Abhängigkeiten installieren.
+Einen lauffähigen Express-Server erstellen, der auf Port 3000 lauscht und statische Dateien ausliefert.
 
 ### Akzeptanzkriterien
-- [ ] `npm init` ausführen (package.json erstellen)
-- [ ] Express installieren (`npm install express`)
-- [ ] Folgende Ordnerstruktur anlegen:
-  ```
-  /public        ← statische Dateien (CSS)
-  /views         ← HTML-Templates
-  server.js      ← Einstiegspunkt
-  converter.js   ← Konvertierungslogik
-  ```
-- [ ] `.gitignore` enthält `node_modules/`
+- [x] `server.js` erstellt
+- [ ] Server startet mit `node server.js`
+- [ ] `express.urlencoded()` Middleware eingebunden (zum Lesen von Formulardaten)
+- [ ] Statische Dateien aus `/public` werden ausgeliefert
+- [ ] Startmeldung im Terminal: `Server läuft auf http://localhost:3000`
+
+### Technische Hinweise
+```js
+const express = require('express');
+const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+app.listen(3000);
+```
+
