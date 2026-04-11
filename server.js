@@ -1,7 +1,7 @@
 
 import express from 'express';
 import fs from 'fs';
-import { convert } from './converter.js';
+import { convert, convertTemperature } from './converter.js';
 
 const app = express();
 
@@ -57,6 +57,27 @@ app.get('/convert/weight', (req, res) => {
         res.status(400).send(error.message);
     }
 });
+
+//Results Temperature Conversion
+app.get('/convert/temperature', (req, res) => {
+    console.log(`Received temperature value: ${req.query['temperature-value']}`);
+
+    const temperatureValue = Number(req.query['temperature-value']);
+    const fromUnit = req.query['from-unit'];
+    const toUnit = req.query['to-unit'];    
+
+    if (!Number.isFinite(temperatureValue) || !fromUnit || !toUnit) {
+        return res.status(400).send('Missing or invalid temperature conversion parameters.');
+    }
+
+    try {
+        const resultPageContent = getTemperatureResultPage(temperatureValue, fromUnit, toUnit);
+        res.type('html').send(resultPageContent);
+    } catch (error) {
+        res.status(400).send(error.message);
+    }
+});
+
 
 // Graceful Shutdown
 process.on('SIGINT', () => {
@@ -117,6 +138,18 @@ function getWeightResultPage(weightValue, fromUnit, toUnit) {
         });
     } catch (error) {
         throw new Error('Error converting weight: ' + error.message);
+    }
+}
+
+function getTemperatureResultPage(temperatureValue, fromUnit, toUnit) {
+    try {
+        const convertedValue = convertTemperature(temperatureValue, fromUnit, toUnit);
+        return renderTemplate('./public/convertionResult.html', {
+            '{{RESULT_LABEL}}': escapeHtml('Result of your temperature conversion'),
+            '{{RESULT_VALUE}}': escapeHtml(`${formatNumber(temperatureValue)} ${fromUnit} = ${formatNumber(convertedValue)} ${toUnit}`)
+        });
+    } catch (error) {
+        throw new Error('Error converting temperature: ' + error.message);
     }
 }
 

@@ -29,9 +29,10 @@ export function convert(value, fromUnit, toUnit) {
 
 
 export function convertTemperature(value, fromUnit, toUnit) {
+
     if (fromUnit === toUnit) return value;
     
-    if (fromUnit === 'C') {
+    if (fromUnit === 'C') {    
         if (toUnit === 'F') return value * 9/5 + 32;
         if (toUnit === 'K') return value + 273.15;
     }

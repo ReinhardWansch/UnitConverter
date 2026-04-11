@@ -32,12 +32,12 @@ Ich werde bei dem Projekt **Node.js mit Express** verwenden. Ich werde mich auch
 
 
 
-## aktuelles Issue: Route & Seite: Gewichtskonverter
+## aktuelles Issue: Route & Seite: Temperaturkonverter
 ### Beschreibung
-Die Route `/weight` implementieren: Formular anzeigen (GET) und Ergebnis berechnen (POST).
+Die Route `/temperature` implementieren: Formular anzeigen (GET) und Ergebnis berechnen (POST).
 
 ### Akzeptanzkriterien
-- [ ] `GET /weight` → gibt HTML-Formular zurück
+- [ ] `GET /temperature` → gibt HTML-Formular zurück
 - [ ] Formular hat Eingabefeld für den Wert (`name="value"`)
 - [ ] Dropdowns für Ausgangs- und Zieleinheit (`name="from"`, `name="to"`)
 - [ ] Bei fehlendem oder ungültigem Wert wird eine verständliche Fehlermeldung angezeigt
