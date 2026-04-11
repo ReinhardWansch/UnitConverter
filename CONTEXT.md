@@ -32,15 +32,13 @@ Ich werde bei dem Projekt **Node.js mit Express** verwenden. Ich werde mich auch
 
 
 
-## aktuelles Issue: Grundlegendes CSS-Styling
+## aktuelles Issue: README schreiben
 ### Beschreibung
-Ein einfaches, einheitliches CSS für alle Seiten erstellen.
+Eine README.md für das Repository erstellen, die das Projekt beschreibt und erklärt, wie man es startet.
 
 ### Akzeptanzkriterien
-- [ ] `public/style.css` erstellt
-- [ ] Alle HTML-Seiten binden die CSS-Datei ein
-- [ ] Formular und Ergebnis sind gut lesbar
-- [ ] Seite ist auf mobilen Geräten nutzbar (kein Overflow)
-
-### Hinweis
-Kein aufwändiges Design nötig – sauber und lesbar ist ausreichend.
+- [x] Kurze Projektbeschreibung
+- [x] Voraussetzungen (Node.js Version)
+- [x] Installationsschritte (`npm install`)
+- [x] Start-Befehl (`node server.js`)
+- [x] Übersicht der verfügbaren Routen (`/`, `/length`, `/weight`, `/temperature`)
